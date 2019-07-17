@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     label: DataTypes.STRING
   }, {});
   Velo.associate = function(models) {
-    // associations can be defined here
+    Velo.hasOne (models.Reservation, {foreignKey : "reservationID", targetKey: "id", onDelete : 'CASCADE'})
   };
   return Velo;
 };

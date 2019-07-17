@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Reservation.associate = function(models) {
  
+    Reservation.hasMany ( models.Velo,{ foreignKey : "reservationID", as : "velos", onDelete: 'CASCADE'});
         Reservation.belongsTo ( models.User,{ foreignKey : "userID", targetKey : "id", onDelete: 'CASCADE'});
        
   };
